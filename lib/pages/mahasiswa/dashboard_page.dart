@@ -36,7 +36,7 @@ class _DashboardPageState extends State<DashboardPage> {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w700,
-                color: ColorName.primary,
+                color: Color.fromARGB(255, 0, 0, 0),
               ),
             ),
             const SizedBox(height: 30.0),
@@ -95,14 +95,14 @@ class _DashboardPageState extends State<DashboardPage> {
                   },
                   icon: const Icon(
                     Icons.qr_code_scanner,
-                    color: ColorName.primary,
+                    color: Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
                 IconButton(
                   onPressed: () {},
                   icon: const Icon(
                     Icons.notifications,
-                    color: ColorName.primary,
+                    color: Color.fromARGB(255, 0, 0, 0),
                   ),
                 ),
               ],
@@ -116,7 +116,7 @@ class _DashboardPageState extends State<DashboardPage> {
         const SizedBox(height: 40.0),
         MenuCard(
           label: 'Kartu Hasil\nStudi',
-          backgroundColor: const Color(0xff686BFF),
+          backgroundColor: Color.fromARGB(255, 54, 54, 59),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return const KhsPage();
@@ -127,7 +127,7 @@ class _DashboardPageState extends State<DashboardPage> {
         const SizedBox(height: 40.0),
         MenuCard(
           label: 'Nilai\nMata Kuliah',
-          backgroundColor: const Color.fromARGB(255, 35, 149, 255),
+          backgroundColor: Color.fromARGB(255, 59, 63, 67),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return const NilaiMkPage();
@@ -138,7 +138,7 @@ class _DashboardPageState extends State<DashboardPage> {
         const SizedBox(height: 40.0),
         MenuCard(
           label: 'Jadwal\nMata Kuliah',
-          backgroundColor: const Color.fromARGB(255, 19, 219, 193),
+          backgroundColor: Color.fromARGB(255, 59, 65, 64),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
               return const JadwalMatkulPage();
