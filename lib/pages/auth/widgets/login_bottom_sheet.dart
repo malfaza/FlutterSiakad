@@ -57,6 +57,7 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                 style: TextStyle(
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
+                  color: Colors.lightBlue,
                 ),
               ),
               const SizedBox(width: 40.0),
@@ -78,7 +79,7 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
               const Text(
                 "Masukkan email dan password agar bisa mengakses informasi administrasi.",
                 style: TextStyle(
-                  color: ColorName.grey,
+                  color: ColorName.red,
                 ),
               ),
               const SizedBox(height: 50.0),
@@ -138,6 +139,7 @@ class _LoginBottomSheetState extends State<LoginBottomSheet> {
                               .add(LoginEvent.login(requestModel));
                         },
                         label: 'Masuk',
+                        color: Colors.lightBlue,
                       );
                     }, loading: () {
                       return const Center(
