@@ -34,17 +34,28 @@ class _KhsPageState extends State<KhsPage> {
       body: Padding(
         padding: const EdgeInsets.all(24.0),
         child: Column(
+          
           // padding: const EdgeInsets.all(24.0),
           // shrinkWrap: true,
           // physics: const NeverScrollableScrollPhysics(),
           children: [
-            const Text(
-              "KHS Mahasiswa",
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.w700,
+            Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () => Navigator.pop(context), // Kembali ke halaman sebelumnya
+                icon: const Icon(Icons.arrow_back),
               ),
-            ),
+              const Text(
+                "KHS",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
 
             const SizedBox(height: 16.0),
             FutureBuilder<User?>(

@@ -90,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             .add(const LogoutEvent.logout());
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorName.white,
+                        backgroundColor: Color.fromARGB(255, 48, 52, 75),
                       ),
                       child: const Padding(
                         padding: EdgeInsets.symmetric(horizontal: 8.0),

@@ -21,12 +21,22 @@ class _NilaiMkPageState extends State<NilaiMkPage> {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          const Text(
-            "Nilai MK",
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w700,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () => Navigator.pop(context), // Kembali ke halaman sebelumnya
+                icon: const Icon(Icons.arrow_back),
+              ),
+              const Text(
+                "Nilai",
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                  
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 8.0),
           Row(

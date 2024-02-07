@@ -32,20 +32,29 @@ class _JadwalMatkulPageState extends State<JadwalMatkulPage> {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.all(24.0),
-              child: Text(
-                "Jadwal MK",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
+            IconButton(
+                  onPressed: () => Navigator.pop(context), // Kembali ke halaman sebelumnya
+                  icon: const Icon(Icons.arrow_back),
                 ),
+          const Padding(
+          padding: EdgeInsets.all(24.0),
+          child: Center(
+             // Teks akan ditengahkan
+            child: Text(
+              "Jadwal MK",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w700,
               ),
+            ),
+            
+          ),
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 20.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                
                 children: [
                   CourseWithImage(
                     name: 'Basis Data',
