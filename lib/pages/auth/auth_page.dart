@@ -20,6 +20,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -69,6 +70,7 @@ class _AuthPageState extends State<AuthPage> {
                 );
               },
               label: 'Login',
+              color: Colors.lightBlue,
             ),
             const SizedBox(height: 32.0),
             const Text.rich(

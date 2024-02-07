@@ -92,7 +92,7 @@ class _AbsensiPageState extends State<AbsensiPage> {
                             "Nama saya",
                             style: TextStyle(
                               fontWeight: FontWeight.w700,
-                              color: ColorName.primary,
+                              color: Color.fromARGB(255, 0, 0, 0),
                             ),
                           ),
                           const Text(
@@ -109,7 +109,7 @@ class _AbsensiPageState extends State<AbsensiPage> {
                 ),
                 Dash(
                   length: MediaQuery.of(context).size.width - 60.0,
-                  dashColor: const Color(0xffD5DFE7),
+                  dashColor: Color.fromARGB(255, 94, 88, 88),
                 ),
                 const SizedBox(height: 12.0),
                 StreamBuilder(
