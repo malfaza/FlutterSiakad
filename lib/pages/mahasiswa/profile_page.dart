@@ -68,48 +68,50 @@ class _ProfilePageState extends State<ProfilePage> {
               child: BlocConsumer<LogoutBloc, LogoutState>(
                 listener: (context, state) {
                   state.maybeWhen(
-                      orElse: () {},
-                      loaded: () {
-                        AuthLocalDatasource().removeAuthData();
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return const AuthPage();
-                        }));
-                      },
-                      error: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Logout Error')));
-                      });
+                    orElse: () {},
+                    loaded: () {
+                      AuthLocalDatasource().removeAuthData();
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => const AuthPage()),
+                      );
+                    },
+                    error: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('Logout Error')),
+                      );
+                    },
+                  );
                 },
                 builder: (context, state) {
-                  return state.maybeWhen(orElse: () {
-                    return ElevatedButton(
-                      onPressed: () {
-                        context
-                            .read<LogoutBloc>()
-                            .add(const LogoutEvent.logout());
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: ColorName.white,
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Text('Logout'),
-                      ),
-                    );
-                  }, loaded: () {
-                    return const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  });
+                  return state.maybeWhen(
+                    orElse: () {
+                      return ElevatedButton(
+                        onPressed: () {
+                          context.read<LogoutBloc>().add(const LogoutEvent.logout());
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: ColorName.white,
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8.0),
+                          child: Text('Logout'),
+                        ),
+                      );
+                    },
+                    loaded: () {
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    },
+                  );
                 },
               ),
             ),
           ),
           const SizedBox(height: 30.0),
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(10.0)),
               color: ColorName.white,
@@ -161,8 +163,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
           const SizedBox(height: 24.0),
           Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
             decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(10.0)),
               color: ColorName.white,
@@ -200,69 +201,38 @@ class _ProfilePageState extends State<ProfilePage> {
       child: Column(
         children: [
           const SizedBox(height: 22.0),
-          // ... widget lainnya
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.all(Radius.circular(50.0)),
-                child: Container(
-                  width: 72.0,
-                  height: 72.0,
-                  color: Colors.blue, // Warna latar belakang avatar
-                  alignment: Alignment.center,
-                  child: Text(
-                    getInitials(user.name),
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24.0,
-                    ),
-                  ),
-                ),
+              CircleAvatar(
+                radius: 36,
+                backgroundImage: AssetImage('assets/images/profile_image.jpg'), // Change to user's profile image
               ),
-              const SizedBox(width: 10.0),
+              const SizedBox(width: 16.0),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 11.0,
-                      vertical: 2.0,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(16.0)),
-                      border: Border.all(color: ColorName.primary),
-                    ),
-                    child: Text(
-                      user.roles,
-                      style: const TextStyle(
-                        color: ColorName.primary,
-                        fontSize: 8,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
                   Text(
                     user.name,
                     style: const TextStyle(
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
                       color: ColorName.primary,
                     ),
                   ),
+                  const SizedBox(height: 4.0),
                   Text(
                     user.email,
                     style: const TextStyle(
-                      fontSize: 8,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 14.0,
+                      color: Colors.blue,
                     ),
                   ),
                 ],
               ),
             ],
           ),
-          const SizedBox(height: 5.0),
+          const SizedBox(height: 16.0),
           Dash(
             length: MediaQuery.of(context).size.width - 60.0,
             dashColor: const Color(0xffD5DFE7),
