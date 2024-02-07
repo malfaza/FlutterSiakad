@@ -23,6 +23,7 @@ class AuthRequestModel {
       password: map['password'] as String,
     );
   }
+  
 
   String toJson() => json.encode(toMap());
 
